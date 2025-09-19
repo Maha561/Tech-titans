@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complaint Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Login -->
+  <div id="login-container" class="container">
+    <h2>Login</h2>
+    <select id="role">
+      <option value="student">Student</option>
+      <option value="staff">Staff</option>
+      <option value="admin">Admin</option>
+    </select>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboard-container" class="container hidden">
+    <h2 id="welcome-msg"></h2>
+    <button onclick="logout()">Logout</button>
+
+    <!-- Complaint Form for Students & Staff -->
+    <div id="complaint-form" class="hidden">
+      <h3>File a Complaint</h3>
+      <select id="category">
+        <option value="service">Service</option>
+        <option value="facility">Facility</option>
+        <option value="academic">Academic</option>
+        <option value="other">Other</option>
+      </select>
+      <select id="priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      <textarea id="complaint-text" placeholder="Write your complaint..."></textarea>
+      <button onclick="submitComplaint()">Submit Complaint</button>
+    </div>
+
+    <!-- Complaints List -->
+    <div id="complaints-list">
+      <h3>Complaints</h3>
+      <ul id="complaints-ul"></ul>
+    </div>
+
+    <!-- Feedback Section -->
+    <div id="feedback-section" class="hidden">
+      <h3>Provide Feedback</h3>
+      <textarea id="feedback-text" placeholder="Write feedback..."></textarea>
+      <label>Rating:
+        <select id="rating">
+          <option value="5">5 - Excellent</option>
+          <option value="4">4 - Good</option>
+          <option value="3">3 - Average</option>
+          <option value="2">2 - Poor</option>
+          <option value="1">1 - Terrible</option>
+        </select>
+      </label>
+      <button onclick="submitFeedback()">Submit Feedback</button>
+    </div>
+
+    <!-- Dashboard Analysis (Admin) -->
+    <div id="dashboard-analysis" class="hidden">
+      <h3>Dashboard Analysis</h3>
+      <p>Total Complaints: <span id="total-complaints">0</span></p>
+      <p>Complaints by Category:</p>
+      <ul id="category-analysis"></ul>
+      <p>Complaints by Priority:</p>
+      <ul id="priority-analysis"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
